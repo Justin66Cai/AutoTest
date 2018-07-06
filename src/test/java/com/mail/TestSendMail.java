@@ -13,9 +13,10 @@ public class TestSendMail {
 	       mailModel.setPassword("Pass1234");//您的邮箱密码    
 	       mailModel.setFromAddress("lrTesting@126.com");    
 	       mailModel.setToAddress("lrTesting@126.com");    
-	       mailModel.setSubject("���� Test");  
+	       mailModel.setSubject("水电费Test");
 	       mailModel.setContent("Mail Test Content");     
-	       SendMailI ee = new SendEmailImpl(); 
+	       SendMailI ee = new SendEmailImpl();
+
 	       try {
 	    	  boolean IfSuccess = 	ee.sendEmail(mailModel);
 			} catch (javax.mail.MessagingException e) {

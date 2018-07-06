@@ -9,7 +9,13 @@ public class DelTest {
         String user = "shaszb@163.com";
         String pwd = "amkor999!";
         Delect del = new Delect();
-        del.delMail(pop3Server, protocol, user, pwd);
+
+        try {
+            boolean IfSuccess = 	del.sendEmail(del.delMail(pop3Server, protocol, user, pwd););
+        } catch (javax.mail.MessagingException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
 }

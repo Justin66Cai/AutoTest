@@ -41,7 +41,7 @@ public class DelectMail {
         // 搜索发件人为 test_hao@sina.cn 和主题为"测试1"的邮件
         SearchTerm st = new AndTerm(
                 new FromStringTerm("shaszb@163.com"),
-                new SubjectTerm("Mail Test"));
+                new SubjectTerm("111"));
 
 //      // 获得邮件夹Folder内的所有邮件Message对象
 //      Message [] messages = folder.getMessages();

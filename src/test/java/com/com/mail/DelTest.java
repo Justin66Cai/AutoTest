@@ -11,7 +11,7 @@ public class DelTest {
         Delect del = new Delect();
 
         try {
-            boolean IfSuccess = 	del.sendEmail(del.delMail(pop3Server, protocol, user, pwd););
+            boolean IfSuccess = del.delMail(pop3Server, protocol, user, pwd);
         } catch (javax.mail.MessagingException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

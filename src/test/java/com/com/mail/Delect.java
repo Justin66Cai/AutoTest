@@ -11,7 +11,7 @@ import javax.mail.search.FromStringTerm;
 import javax.mail.search.SearchTerm;
 import javax.mail.search.SubjectTerm;
 public class Delect {
-    public  void   delMail(String pop3Server,String protocol,String user,String pwd ) throws MessagingException,NoSuchProviderException {
+    public  boolean   delMail(String pop3Server,String protocol,String user,String pwd ) throws MessagingException,NoSuchProviderException {
         Random random;
         // 创建一个有具体连接信息的Properties对象
         Properties props = new Properties();
@@ -54,6 +54,7 @@ public class Delect {
             folder.close(true);
             store.close();
         }
+       return true;
     }
 
 }

@@ -1,6 +1,10 @@
 package com.cfd;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
+import com.config.HttpRequest;
+import com.config.RequestGetBackup;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -22,48 +26,22 @@ import org.testng.annotations.Test;
 
         @Test
         public void testGet() throws Exception{
-            requestGet("http://www.baidu.com");
+            String a="http://www.baidu.com";
+            Map resq = HttpRequest.requestGetAndHeader(a, "%&^*()*");
+//            for (Object str : resq.keySet()) {
+//                System.out.println("key:" + str + " vlue:" + resq.get(str));
+//            }
+            resq.forEach((key,value)-> System.out.println(key+":"+value));
+//            String head = (String) resq.get(2);
+//            System.out.println(head);
+//            String resq = HttpRequest.requestGet(a, "b");
+//            System.out.println(resq);
+//            String resq = RequestGetBackup.requestGet(a);
+//            System.out.println(resq);
+
 //    	requestGet("http://www.renren.com/PLogin.do");
         }
-        private void requestGet(String urlWithParams) throws Exception {
-            CloseableHttpClient httpclient = HttpClientBuilder.create().build();
 
-            HttpGet httpget = new HttpGet(urlWithParams);
-            //配置请求的超时设置
-            RequestConfig requestConfig = RequestConfig.custom()
-                    .setConnectionRequestTimeout(50)
-                    .setConnectTimeout(50)
-                    .setSocketTimeout(50).build();
-            httpget.setConfig(requestConfig);
-
-            CloseableHttpResponse response = httpclient.execute(httpget);
-            System.out.println("响应码StatusCode -> " + response.getStatusLine().getStatusCode());
-
-            HttpEntity entity = response.getEntity();
-            String jsonStr = EntityUtils.toString(entity);//, "utf-8");
-
-            char c=jsonStr.trim().charAt(0);
-            if('['==c){
-                JSONArray jsonArray=new JSONArray(jsonStr);
-                for(int i=0;i<jsonArray.length();i++){
-                    JSONObject jsonObj=jsonArray.getJSONObject(i);
-                    Iterator ite=jsonObj.keys();
-                    while(ite.hasNext()){
-                        String key=(String) ite.next();
-                        System.out.println("key=:"+key+",value=:"+jsonObj.getString(key));
-                    }
-                }
-            }
-            else if('{'==c){
-                JSONObject jsonObj1=new JSONObject(jsonStr);
-                Iterator ite=jsonObj1.keys();
-                while(ite.hasNext()){
-                    String key=(String) ite.next();
-                    System.out.println("解析后的数据：key="+key+",value="+jsonObj1.getString(key));
-                }
-            }
-            httpget.releaseConnection();
-        }
 
         @AfterClass
         public void afterClass() {

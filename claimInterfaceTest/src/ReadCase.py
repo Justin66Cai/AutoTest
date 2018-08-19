@@ -27,7 +27,7 @@ class ReadCase:
 
             requestData2 = sheet.cell(row=i, column=2).value
 
-            requestData3 = sheet.cell(row=i, column=3).value
+            # requestData3 = sheet.cell(row=i, column=3).value
 
             requestData4 = sheet.cell(row=i, column=4).value
 
@@ -52,7 +52,7 @@ class ReadCase:
             openFile.save(path2)
 
 if __name__ == '__main__':
-    path1 = "F:\\testcase.xlsx"
-    path2 = "F:\\testreport.xlsx"
+    path1 = "..\\case\\testcase1.xlsx"
+    path2 = "..\\report\\testreport.xlsx"
     readcase1 = ReadCase()
     readcase1.getCase(path1, path2)

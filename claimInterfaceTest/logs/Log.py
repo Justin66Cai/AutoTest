@@ -3,7 +3,9 @@ import os
 
 
 class Log():
+
     def __init__(self,logFiles):
+
         self.logger = logging.getLogger("myLogger")
         self.logger.setLevel(logging.INFO)
 

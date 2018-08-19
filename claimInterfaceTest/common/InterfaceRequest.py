@@ -3,7 +3,6 @@ import  json
 
 class InterfaceRequest:
     #定义get请求
-    print("InterfaceRequest================")
     def requestGet(self,url,params,headers):
         try:
             if (params == 'no'):
@@ -18,11 +17,9 @@ class InterfaceRequest:
             print("请检测get请求数据:",str(e))
     # 定义post请求
     def requestPost(self,url,data,headers):
-        print("-------------+++++++++++++++++")
         try:
             req = requests.post(url,data=data,headers=headers)
-            print("-------------",req.text)
-            print(data)
+            # print("-------------",req.text)
             return req.text
         except BaseException as e:
             print("请检测post请求数据:",str(e))

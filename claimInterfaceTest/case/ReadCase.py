@@ -40,10 +40,10 @@ class ReadCase:
 
             requestData6 = sheet.cell(row=i, column=6).value
             print(type(requestData6), requestData6)
-
             requestData7 = sheet.cell(row=i, column=7).value
-            # 将字符串转换成字典
+
             requestData7 = eval(requestData7)
+
             print(type(requestData7), requestData7)
 
             requestData8 = sheet.cell(row=i, column=8).value

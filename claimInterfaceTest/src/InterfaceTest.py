@@ -22,7 +22,7 @@ class InterfaceTest:
             print('headers1111111111111=', headers)
             self.requestTest = request.requestPost(fullUrl,params,headers)
         elif(reqform == 'POST' and dataform == 'Json'):
-            self.requestTest = request.InterfaceRequest.jsonPost(fullUrl,params,headers)
+            self.requestTest = request.jsonPost(fullUrl,params,headers)
         else:
             print("请求失败,请检查case用例配置")
         print(self.requestTest)

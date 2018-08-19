@@ -6,11 +6,14 @@ class InterfaceRequest:
     print("InterfaceRequest================")
     def requestGet(self,url,params,headers):
         try:
-            req = requests.get(url,params=params,headers=headers)
+            if (params == 'no'):
+                req = requests.get(url,headers=headers)
+            else:
+                req = requests.get(url,params=params, headers=headers)
             #转换请求类型
-            jsonReq = req.json()
+            # jsonReq = req.json()
             # print(req.text)
-            return jsonReq
+            return req.text
         except BaseException as e:
             print("请检测get请求数据:",str(e))
     # 定义post请求
@@ -18,10 +21,9 @@ class InterfaceRequest:
         print("-------------+++++++++++++++++")
         try:
             req = requests.post(url,data=data,headers=headers)
-            print(data)
-            jsonReq = req.json()
             print("-------------",req.text)
-            return  jsonReq
+            print(data)
+            return req.text
         except BaseException as e:
             print("请检测post请求数据:",str(e))
 

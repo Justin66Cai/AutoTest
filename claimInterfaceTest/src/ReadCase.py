@@ -5,8 +5,8 @@ from src.InterfaceTest import *
 from logs.Log import *
 
 class ReadCase:
-    def getCase(self,path1,path2):
-        log = Log('F:\\test.log')
+    def getCase(self,path1,path2,logPath):
+        log = Log(logPath)
         try:
             #打开excel文件
             openFile = openpyxl.load_workbook(path1)
@@ -44,7 +44,6 @@ class ReadCase:
             # requestData9 = sheet.cell(row=i, column=9).value
             # print(type(requestData9), requestData9)
 
-            # headers = {"Content-Type":"application/x-www-form-urlencoded"}
             it = InterfaceTest()
             it.testRequest(requestData4,requestData7,requestData5,requestData6,
                            requestData8,i,sheet,requestData1,requestData2,log)
@@ -54,5 +53,6 @@ class ReadCase:
 if __name__ == '__main__':
     path1 = "..\\case\\testcase1.xlsx"
     path2 = "..\\report\\testreport.xlsx"
+    logPath = "..\\report\\logInfo.log"
     readcase1 = ReadCase()
-    readcase1.getCase(path1, path2)
+    readcase1.getCase(path1, path2,logPath)

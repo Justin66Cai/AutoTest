@@ -14,9 +14,8 @@ class InterfaceRequest:
     # 定义post请求
     def requestPost(self,url,data,headers):
         try:
-
             req = requests.post(url,data=data,headers=headers)
-            return req.text
+            return req.texts
         except BaseException as e:
             print("请检测post请求数据:",str(e))
 

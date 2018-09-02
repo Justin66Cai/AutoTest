@@ -25,7 +25,6 @@ class InterfaceTest:
         if(re.search(checkpoint,str(self.requestTest))):
             sheet.cell(row = i,column = 11).value = "pass" #row 是通过遍历case类传递
             sheet.cell(row = i,column = 12).value = str(self.requestTest)
-
             log.info("测试用例" + str(num) + " " + name + "接口执行成功")
         else:
             sheet.cell(row=i, column=11).value = "fail"  # row 是通过遍历case类传递

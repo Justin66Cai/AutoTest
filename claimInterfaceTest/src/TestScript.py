@@ -1,9 +1,5 @@
 import json
-
-import  mock
-import  re
 import requests
-import datetime
 import time
 
 
@@ -15,16 +11,16 @@ def correMethod(correlation):
     req = requests.post(url, params=data)
     for i in correlation:
         result = json.loads(req.text)
-        print('result=',result)
         res = {}
+        for k in result:
         # result[i], i
-        res[result[i]] = i
-        print(res)
-        return i
+            res[k] = result[k]
+            # print('res=',res)
+        return res
 
 
 # print (str.replace("is", "wcvas",1))
 if __name__ == '__main__':
     correlation = ("msg", "msg_code")
     x = correMethod(correlation)
-    # print(x)
+    print(x['msg'])
